@@ -38,7 +38,7 @@ public class tp1 {
         //driver.findElement(By.xpath("//*@id='twotabsearchtextbox'"));
         //driver.findElement(By.xpath("//*@name='field-keywords'"));
 
-        //driver.quit(); // fermer google
+        driver.quit(); // fermer google
     }
     @Test
     public void test2(){
@@ -68,6 +68,8 @@ public class tp1 {
         //Fermer le cookies
         WebElement ajoutPanier = driver.findElement(By.id("add-to-cart-button"));
         ajoutPanier.click();
+
+        driver.quit(); // fermer amazon
 
     }
 }
