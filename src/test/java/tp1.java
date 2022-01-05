@@ -10,11 +10,11 @@ public class tp1 {
     public void test1(){
         WebDriver driver = new ChromeDriver(); // instantation pour ouvrir google
         driver.get("https://www.amazon.fr"); // ouvrir la page google.com
-        /*try {
+        try {
             Thread.sleep(1000); // Pour instancier un temps d'attente
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
         driver.manage().window().maximize();// maximiser la taille de l'écran
 
         // Sur la page d'amazon on teste les éléments de la page
@@ -38,7 +38,7 @@ public class tp1 {
         //driver.findElement(By.xpath("//*@id='twotabsearchtextbox'"));
         //driver.findElement(By.xpath("//*@name='field-keywords'"));
 
-        driver.quit(); // fermer google
+        driver.quit(); // fermer amazon
     }
     @Test
     public void test2(){
