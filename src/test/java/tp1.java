@@ -3,6 +3,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,6 +18,10 @@ public class tp1 {
         //Fermer le cookies
         WebElement buttonCookies = driver.findElement(By.id("sp-cc-accept"));
         buttonCookies.click();
+    }
+    @AfterMethod
+    public void teardown(){
+        driver.quit(); // fermer amazon
     }
 
     @Test
@@ -48,7 +53,7 @@ public class tp1 {
         //driver.findElement(By.xpath("//*@id='twotabsearchtextbox'"));
         //driver.findElement(By.xpath("//*@name='field-keywords'"));
 
-        driver.quit(); // fermer amazon
+
     }
     @Test
     public void test2(){
@@ -73,8 +78,7 @@ public class tp1 {
         //Fermer le cookies
         WebElement ajoutPanier = driver.findElement(By.id("add-to-cart-button"));
         ajoutPanier.click();
-
-        driver.quit(); // fermer amazon
+        
 
     }
 }
