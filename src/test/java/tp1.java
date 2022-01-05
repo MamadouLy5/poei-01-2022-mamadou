@@ -78,7 +78,7 @@ public class tp1 {
         //Fermer le cookies
         WebElement ajoutPanier = driver.findElement(By.id("add-to-cart-button"));
         ajoutPanier.click();
-        
+          
 
     }
 }
