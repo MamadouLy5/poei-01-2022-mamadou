@@ -10,11 +10,11 @@ public class tp1 {
     public void test1(){
         WebDriver driver = new ChromeDriver(); // instantation pour ouvrir google
         driver.get("https://www.amazon.fr"); // ouvrir la page google.com
-        /*try {
+        try {
             Thread.sleep(1000); // Pour instancier un temps d'attente
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
         driver.manage().window().maximize();// maximiser la taille de l'écran
 
         // Sur la page d'amazon on teste les éléments de la page
@@ -38,10 +38,38 @@ public class tp1 {
         //driver.findElement(By.xpath("//*@id='twotabsearchtextbox'"));
         //driver.findElement(By.xpath("//*@name='field-keywords'"));
 
-        //driver.quit(); // fermer google
+        driver.quit(); // fermer amazon
     }
     @Test
     public void test2(){
+        WebDriver driver = new ChromeDriver(); // instantation pour ouvrir google
+        driver.get("https://www.amazon.fr"); // ouvrir la page amazon.fr
+        driver.manage().window().maximize();// maximiser la taille de l'écran
+        //Fermer le cookies
+        WebElement buttonCookies = driver.findElement(By.id("sp-cc-accept"));
+        buttonCookies.click();
+        // Rechercher dans la barre de recherche "machine a raclette"
+        WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
+        barreRecherche.sendKeys("machine a raclette");
+        barreRecherche.sendKeys(Keys.ENTER);
+
+        //Temps d'attente pour charger la page
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Cliquer premier resultat
+        WebElement premierElement = driver.findElement(By.cssSelector("[data-cel-widget='search_result_1']"));
+        premierElement.click();
+
+        // Cliquer sur le bouton ajouter au panier
+        //Fermer le cookies
+        WebElement ajoutPanier = driver.findElement(By.id("add-to-cart-button"));
+        ajoutPanier.click();
+
+        driver.quit(); // fermer amazon
 
     }
 }
