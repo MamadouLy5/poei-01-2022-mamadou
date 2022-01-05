@@ -5,11 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class tp1 {
     WebDriver driver;
@@ -96,5 +98,36 @@ public class tp1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/
+    }
+    @Test
+    // test pour un sélecteur qui retourne plusieurs elements
+    public void testMultipleElements(){
+        // Arrange  Act Assert
+        //Arrange
+        int expectedNumberOfResults = 60;
+        String keyWord = "machine a raclette";
+        int timeOutSearchLoad = 10;
+        By searchBarSelector = By.id("twotabsearchtextbox");
+        By searchBarResultSelector = By.cssSelector("[data-component-type='s-search-result']");
+
+
+        //Act
+        WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
+        barreRecherche.sendKeys("machine a raclette" + Keys.ENTER);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-component-type='s-search-result']")));
+
+        List<WebElement> listeDeResultat = driver.findElements(By.cssSelector("[data-component-type='s-search-result']"));
+        listeDeResultat.get(1).click();
+
+        // Vérification du résultats attendus
+        Assert.assertEquals(listeDeResultat.size(), expectedNumberOfResults, "The number of results is not correct");
+
+        try {
+            Thread.sleep(2000); // Pour instancier un temps d'attente
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
