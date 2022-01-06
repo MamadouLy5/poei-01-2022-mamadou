@@ -102,10 +102,10 @@ public class uberEatsTests {
 
         Assert.assertTrue(cart.getText().contains(nombreElementPanier), "The cart does not contain 1 item");
     }
-    /*@AfterMethod
+    @AfterMethod
     public void teardown(){
         driver.quit(); // fermer google
-    }*/
+    }
 
 
 }
