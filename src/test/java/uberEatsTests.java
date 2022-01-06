@@ -24,7 +24,7 @@ public class uberEatsTests {
         driver.get("https://www.ubereats.com/fr"); // ouvrir la page google.com
         driver.manage().window().maximize();// maximiser la taille de l'écran
         //Fermer le cookies
-        WebElement buttonCookies = driver.findElement(By.cssSelector("#cookie-banner button.bj"));
+        WebElement buttonCookies = driver.findElement(By.cssSelector("#cookie-banner button.bj"));  
         //button[class='b8 b9 ba bb bc bd eo ah bf bg b0 bh bi bj bk bl ep bn bo bx eq']
         buttonCookies.click();
     }
