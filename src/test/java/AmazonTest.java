@@ -37,6 +37,8 @@ public class AmazonTest {
         MainPage mainPage = new MainPage(driver); // On instancie ici la variable driver qui est la page d'amazon
         mainPage.searchProduct(productName); // Il recupére la productName et la recherche dans Amazon
 
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        searchResultPage.openResult(0);
         // Assert
 
     }
@@ -50,6 +52,8 @@ public class AmazonTest {
         MainPage mainPage = new MainPage(driver); // On instancie ici la variable driver qui est la page d'amazon
         mainPage.searchProduct(productName); // Il recupére la productName et la recherche dans Amazon
 
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        searchResultPage.openResult(5);
         // Assert
 
     }
