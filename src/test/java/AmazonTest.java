@@ -28,10 +28,10 @@ public class AmazonTest {
 
     // Page objet nous permet de réorganisé notre code afin de pouvoir faire plusieurs en changeant que la variable "productName"
     @Test
-    public void nintendoSwitchAddToCartPriceTest(){
+    public void laptopAddToCartPriceTest(){
 
         // Arrange
-        String productName = "Nintendo Switch Oled"; // On définit la variable à recherche
+        String productName = "ordinateur portable"; // On définit la variable à recherche
 
         // Act
         //// MainPage
@@ -46,6 +46,9 @@ public class AmazonTest {
         ProductPage productPage = new ProductPage(driver);
         productPage.addToCart();
         productPage.noCoverage();
+
+        ConfirmationAddToCartPage confirmationAddToCartPage = new ConfirmationAddToCartPage(driver);
+        confirmationAddToCartPage.openCart();
 
         // Assert
 
