@@ -19,7 +19,7 @@ public class ProductPage {
     public ProductPage(WebDriver driver){
         this.driver = driver;
     }
-
+// Retourne la meme page
     public void addToCart(){
         driver.findElement(addToCartButtonSelector).click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOutSidebar));
