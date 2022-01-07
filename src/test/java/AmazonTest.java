@@ -34,11 +34,19 @@ public class AmazonTest {
         String productName = "Nintendo Switch Oled"; // On définit la variable à recherche
 
         // Act
+        //// MainPage
         MainPage mainPage = new MainPage(driver); // On instancie ici la variable driver qui est la page d'amazon
         mainPage.searchProduct(productName); // Il recupére la productName et la recherche dans Amazon
 
+        /// Seach
         SearchResultPage searchResultPage = new SearchResultPage(driver);
         searchResultPage.openResult(0);
+
+        /// Ajout Panier
+        ProductPage productPage = new ProductPage(driver);
+        productPage.addToCart();
+        productPage.noCoverage();
+
         // Assert
 
     }
