@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Execute tests!
           command: |
-            ./gradlew test --tests "AmazonTest.machineRacletteTest"
+            ./gradlew test --tests "AmazonTest.laptopAddToCartPriceTest"
 
       - run:
           name: Stop selenium grid
