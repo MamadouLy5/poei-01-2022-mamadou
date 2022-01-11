@@ -36,7 +36,7 @@ public class AppleTest {
     public void Iphone(){
 
         // Arrange
-        String productName = "iPhone 13 Pro"; // On définit la variable à recherche
+        String productName = "iPhone 13 Pro Max 256 Go Bleu Alpin"; // On définit la variable à recherche
         String productPageTitle = "1 379,00";
         String productPrice = "1 379,00";
         String activeCartSubtotal = "1 379,00";
@@ -89,12 +89,12 @@ public class AppleTest {
         String CartTotalCompare = cartPageApple.getAppleTotal();
 
         // Assert
-        //Assert.assertEquals(productNameCompare, productName);
-        /*Assert.assertTrue(productNameCompare.contains(productName), "The name of cart does not contain in th result");
-        
+        Assert.assertEquals(productNameCompare, productName);
+        //Assert.assertTrue(productNameCompare.contains(productName), "The name of cart does not contain in th result");
+
         //Assert.assertEquals(productPageTitleCompare, productPageTitle);
         Assert.assertTrue(productPageTitleCompare.contains(productPageTitle), "The name of product does not contain in th result");
-        */
+
         //Assert.assertEquals(productPriceCompare, productPrice);
         Assert.assertTrue(productPriceCompare.contains(productPrice), "The price of product does not contain in th result");
 
