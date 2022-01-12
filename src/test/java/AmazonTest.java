@@ -29,17 +29,17 @@ public class AmazonTest {
 
     @BeforeMethod
     public void setup() {
-        /*URL seleniumGridUrl = null;
+        URL seleniumGridUrl = null;
         try {
             seleniumGridUrl = new URL("http://127.0.0.1:4444");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         EdgeOptions chromeOptions = new EdgeOptions(); // Si on veut lancer sur chrome on utilise ChromeOptions;
-        driver = new RemoteWebDriver(seleniumGridUrl, chromeOptions);*/
+        driver = new RemoteWebDriver(seleniumGridUrl, chromeOptions);
 
         // On doit remplacer ChromeDriver par Remote
-        driver = new ChromeDriver(); // Instantation pour ouvrir google
+        //driver = new ChromeDriver(); // Instantation pour ouvrir google
 
         //log.info("Mamadou was here");
         //log.trace("Trace");
@@ -127,6 +127,11 @@ public class AmazonTest {
         By myAccountLinkSelector = By.cssSelector("#nav-al-your-account .nav-title + a");
         
         WebElement button = driver.findElement(buttonSelector);
+        try{
+
+        }catch (){
+
+        }
         log.debug("The button was found");
 
         Actions hover = new Actions(driver);
@@ -134,6 +139,7 @@ public class AmazonTest {
         hover.perform(); // execute l'action de déplacement de la souris
         log.info("Mouse hover button");
 
+        // try-catch : gestion de exeptions
         /*try {
             Thread.sleep(4000); // Pour instancier un temps d'attente
         } catch (InterruptedException e) {
