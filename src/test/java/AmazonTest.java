@@ -1,9 +1,14 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +17,7 @@ import pageobjects.amazon.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 
 public class AmazonTest {
@@ -20,17 +26,17 @@ public class AmazonTest {
 
     @BeforeMethod
     public void setup() {
-        URL seleniumGridUrl = null;
+        /*URL seleniumGridUrl = null;
         try {
             seleniumGridUrl = new URL("http://127.0.0.1:4444");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         EdgeOptions chromeOptions = new EdgeOptions(); // Si on veut lancer sur chrome on utilise ChromeOptions;
-        driver = new RemoteWebDriver(seleniumGridUrl, chromeOptions);
+        driver = new RemoteWebDriver(seleniumGridUrl, chromeOptions);*/
 
         // On doit remplacer ChromeDriver par Remote
-        //driver = new ChromeDriver(); // Instantation pour ouvrir google
+        driver = new ChromeDriver(); // Instantation pour ouvrir google
 
 
         driver.get("https://www.amazon.fr"); // Ouvrir la page google.com
@@ -82,7 +88,7 @@ public class AmazonTest {
 
 
     }
-    @Test
+    /*@Test
     public void machineRacletteTest(){
 
         // Arrange
@@ -98,5 +104,30 @@ public class AmazonTest {
         // Assert
 
 
+    }*/
+    @Test
+    public void hoverTest(){
+        By buttonSelector = By.id("nav-link-accountList");
+        By myAccountLinkSelector = By.cssSelector("#nav-al-your-account .nav-title + a");
+        
+        WebElement button = driver.findElement(buttonSelector);
+        Actions hover = new Actions(driver);
+        hover.moveToElement(button);
+        hover.perform(); // execute l'action de déplacement de la souris
+        /*try {
+            Thread.sleep(4000); // Pour instancier un temps d'attente
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+        /// bloquer la page pour trouver le selector qui se trouve sur un survol : inspecter l'élément + ensuite mettre en pause avec F8 +
+        // revenir sur la partie survol + cliquer sur le carrée avec une fléche
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.elementToBeClickable(myAccountLinkSelector)).click();
+        //driver.findElement((myAccountLinkSelector)).click();
+        try {
+            Thread.sleep(4000); // Pour instancier un temps d'attente
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
