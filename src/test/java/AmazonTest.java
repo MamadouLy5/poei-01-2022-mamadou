@@ -127,11 +127,6 @@ public class AmazonTest {
         By myAccountLinkSelector = By.cssSelector("#nav-al-your-account .nav-title + a");
         
         WebElement button = driver.findElement(buttonSelector);
-        try{
-
-        }catch (){
-
-        }
         log.debug("The button was found");
 
         Actions hover = new Actions(driver);
